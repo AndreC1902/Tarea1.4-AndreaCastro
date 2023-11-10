@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tarea1._4_AndreaCastro.Views.ImagenListPage"
+             xmlns:Controllers="clr-namespace:Tarea1._4_AndreaCastro.Controllers"
+             Title="Lista de Imágenes">
+    
+    <ContentPage.Resources>
+        <Controllers:ByteArrayImage x:Key="ByteToArrayImg" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView x:Name="ListaImagen" SelectionMode="Single" SelectionChanged="Imagen_OnItemTapped">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" 
+                                       ItemSpacing="15">
+                    </LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="Auto" Margin="25,10,35,10">
+                            <!-- Columna 0: Imagen -->
+                            <Image Grid.Row="0" Grid.Column="0" 
+                                   x:Name="image" Source="{Binding Image, Converter={StaticResource ByteToArrayImg}}" 
+                                   WidthRequest="100" HeightRequest="100" Aspect="AspectFill" HorizontalOptions="End"/>
+
+                            <!-- Columna 1: Información de la persona -->
+                            <Grid Grid.Row="0" Grid.Column="1" Margin="0,25,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="{Binding Nombre}"/>
+                                <Label Grid.Row="1" Text="{Binding Descripcion}"/>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="20">
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Button Text="Ver Foto" 
+                            x:Name="verfoto" 
+                            BackgroundColor="#FFD230" 
+                            CornerRadius="10" 
+                            TextColor="Black"  
+                            WidthRequest="170" 
+                            Clicked="btnver"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

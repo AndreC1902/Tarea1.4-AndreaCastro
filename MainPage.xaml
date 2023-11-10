@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tarea1._4_AndreaCastro.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20">
+
+            <Label Text="¡Toma una Foto de tu Ubicación!" FontSize="Small" HorizontalOptions="Center" TextColor="Black" Margin="0,0,0,5" />
+            <Image x:Name="foto" Source="camera2.png" WidthRequest="180" HeightRequest="180" HorizontalOptions="Center" 
+                   BackgroundColor="LightGray"/>
+
+            <Button x:Name="btnFoto" Text="Tomar Foto" Clicked="btnTomarFoto" Margin="50,10,50,7" 
+                    BackgroundColor="SaddleBrown" CornerRadius="10" TextColor="White"/>
+
+            <Label Text="Nombre:" FontSize="Subtitle" Margin="0,20,0,0" TextColor="Black" FontAttributes="Bold"/>
+            <Frame 
+                Margin="0,5,10,0" 
+                Padding="0">
+                <Entry Keyboard="Text" 
+                   x:Name="txtNombre"
+                   FontSize="14"
+                   BackgroundColor="#FFB0C4DE"/>
+            </Frame>
+
+            <Label Text="Descripción:" FontSize="Subtitle" Margin="0,20,0,0" TextColor="Black" FontAttributes="Bold"/>
+            <Frame 
+                Margin="0,5,10,0" 
+                Padding="0">
+                <Entry Keyboard="Text" 
+                    x:Name="txtDescripcion"
+                    FontSize="14"
+                    BackgroundColor="#FFB0C4DE"/>
+            </Frame>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="-7,30,0,0">
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Button Text="Guardar Foto" 
+                            x:Name="guardarF" 
+                            BackgroundColor="#FFD230" 
+                            CornerRadius="10" 
+                            TextColor="Black"  
+                            WidthRequest="170" 
+                            Clicked="btnGuardar"/>
+
+                    <Button Text="Lista de Fotos" 
+                            x:Name="ListaF" 
+                            BackgroundColor="#FFD230" 
+                            CornerRadius="10" 
+                            TextColor="Black" 
+                            WidthRequest="170"  
+                            Clicked="btnLista" />
+                </StackLayout>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
